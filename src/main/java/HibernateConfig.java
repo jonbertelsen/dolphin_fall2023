@@ -31,7 +31,7 @@ public class HibernateConfig {
             props.put("hibernate.connection.driver_class", "org.postgresql.Driver"); // driver class for postgresql
             props.put("hibernate.archive.autodetection", "class"); // hibernate scans for annotated classes
             props.put("hibernate.current_session_context_class", "thread"); // hibernate current session context
-            props.put("hibernate.hbm2ddl.auto", "update"); // hibernate creates tables based on entities
+            props.put("hibernate.hbm2ddl.auto", "create"); // hibernate creates tables based on entities
 
 
             return getEntityManagerFactory(configuration, props);
@@ -58,6 +58,8 @@ public class HibernateConfig {
         configuration.addAnnotatedClass(Person.class);
         configuration.addAnnotatedClass(PersonDetail.class);
         configuration.addAnnotatedClass(Fee.class);
+        configuration.addAnnotatedClass(Event.class);
+        configuration.addAnnotatedClass(PersonEvent.class);
     }
 
     public static EntityManagerFactory getEntityManagerFactoryConfig(String name) {
